@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:widget/main.dart';
 import 'package:widget/models/login_model.dart';
 import 'package:widget/page/grammar/grammar.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/container_widget.dart';
 import 'package:widget/tab/tab.dart';
 // import 'package:rxdart/rxdart.dart'; 如果需要，自行添加插件
 

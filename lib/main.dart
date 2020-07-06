@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/custompaint_widget.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/start_widget.dart';
+import 'package:widget/page/home/index/start_widget.dart';
 import 'package:widget/tab/tab.dart';
 import 'package:widget/view/login_widget.dart';
 import 'package:widget/view_models/login_view_model.dart';
@@ -9,6 +8,7 @@ import 'other/clock.dart';
 import 'other/thermometer.dart';
 
 void main() {
+  
   runApp(MyApp());
 
 }

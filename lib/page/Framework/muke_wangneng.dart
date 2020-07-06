@@ -35,16 +35,16 @@ class _MukeWangNengState extends State<MukeWangNeng>
   var controller;
   var tabs = <Tab>[
     Tab(
-      text: "静态路由",
+      text: "静态",
     ),
     Tab(
-      text: "动态路由",
+      text: "动态",
     ),
     Tab(
-      text: "参数回传",
+      text: "回传",
     ),
     Tab(
-      text: "自定义路由",
+      text: "自定义",
     ),
   ];
   List<Map> imgList = [

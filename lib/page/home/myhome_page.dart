@@ -3,12 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:widget/other/cost_description.dart';
 import 'package:widget/other/result_determination.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/card_widget.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/placehold_widget.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/professional_qualification_page.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/sex.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/swiper_widget.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/home/index/textfeild.widget.dart';
 import 'package:widget/view/login_widget.dart';
 import 'package:widget/view_models/login_view_model.dart';
 import '../../main.dart';
@@ -16,7 +10,12 @@ import 'index/Animation.dart';
 import 'index/Interaction_model.dart';
 import 'index/Jitter_page.dart';
 import 'index/auxiliary_functions_page.dart';
+import 'index/card_widget.dart';
+import 'index/novel_reading_page.dart';
+import 'index/placehold_widget.dart';
 import 'index/scrollview_page.dart';
+import 'index/sex.dart';
+import 'index/swiper_widget.dart';
 import 'index/tabBar_widget.dart';
 import '../../other/academic_degree_page.dart';
 import 'index/adaptorwidget.dart';
@@ -46,6 +45,7 @@ import 'index/phone_number_page.dart';
 import 'index/progress_widget.dart';
 import 'index/stack_widget.dart';
 import 'index/text_widget.dart';
+import 'index/textfeild.widget.dart';
 import 'index/video_widget.dart';
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -55,6 +55,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int i;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -72,6 +79,18 @@ class _HomePageState extends State<HomePage> {
             mainAxisSpacing: 8.0,
             padding: EdgeInsets.all(10),
             children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NovelReading(),
+                      ));
+                },
+                child: Container01(
+                  text01: 'NovelReading',
+                ),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(

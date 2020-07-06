@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Administrator/AndroidStudioProjects/widget/lib/page/Framework/muke_wangneng.dart';
 import 'package:widget/page/Framework/framework_widget.dart';
+import 'package:widget/page/Framework/muke_wangneng.dart';
 import 'package:widget/page/grammar/grammar.dart';
 import 'package:widget/page/home/index/drawer_widget.dart';
 import 'package:widget/page/home/myhome_page.dart';
@@ -51,7 +51,7 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin{
     // 将我们 bottomBar 上面的按钮图标对应的页面存放起来，方便我们在点击的时候
     _pageList = <StatefulWidget>[
       new HomePage(),
-      new MukeWangNeng(),
+      new FrameworkWidget(),
       new StateWidget(),
       new Grammar(),
       new Persion(),
