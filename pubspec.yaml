@@ -43,8 +43,8 @@ dependencies:
   http: "^0.11.3+16"
   shared_preferences: "^0.4.3" #sp文件
   audioplayers: "^0.10.1" #音频播放
-  # audioplayer: "^0.5.2"
   dio: "^2.1.0"  #latest version
+  audioplayer: ^0.8.1
   fdottedline: ^1.0.1
 
 dev_dependencies:

@@ -103,10 +103,10 @@ class _TextfeildWidgetState extends State<TextfeildWidget> {
                   ),
                   TextField(
                     decoration: InputDecoration(
-                      filled: true,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                    ),
+                    filled: true,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                  ),
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.search,
                     obscureText: true,
