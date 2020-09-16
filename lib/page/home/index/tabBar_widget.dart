@@ -94,15 +94,16 @@ class _TabbarWidgetState extends State<TabbarWidget> with SingleTickerProviderSt
                 child: Text('01'),
               ),
     ]
-      ),)
+      ),
+      )
     );
   }
 
   //当整个页面dispose时，记得把控制器也dispose掉，释放内存
   @override
-  void dispose() {
-    controller1.dispose();
-    super.dispose();
-  }
+void dispose() {
+  controller1.dispose();
+  super.dispose();
+}
 }
 

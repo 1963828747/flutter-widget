@@ -1,17 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:widget/other/bang.dart';
+import 'package:widget/other/classsort.dart';
+import 'package:widget/other/cost_description.dart';
+import 'package:widget/other/inform.dart';
+import 'package:widget/other/result_determination.dart';
+import 'package:widget/other/xinjixueyuan.dart';
+import 'package:widget/page/home/index02/audio_page.dart';
 import 'package:widget/view/login_widget.dart';
 import 'package:widget/view_models/login_view_model.dart';
+import '../../main.dart';
+import 'index/Animation.dart';
 import 'index/Interaction_model.dart';
 import 'index/Jitter_page.dart';
 import 'index/auxiliary_functions_page.dart';
 import 'index/card_widget.dart';
+import 'index/novel_reading_page.dart';
 import 'index/placehold_widget.dart';
 import 'index/scrollview_page.dart';
 import 'index/sex.dart';
 import 'index/swiper_widget.dart';
 import 'index/tabBar_widget.dart';
+import '../../other/academic_degree_page.dart';
 import 'index/adaptorwidget.dart';
 import 'index/animation_widget.dart';
 import 'index/appbar_widget.dart';
@@ -29,9 +40,11 @@ import 'index/flutter_logo_widget.dart';
 import 'index/gestureDetector_widget.dart';
 import 'index/gridview_widget.dart';
 import 'index/icon_widget.dart';
+import '../../other/identity_authentication_page.dart';
 import 'index/images_widget.dart';
 import 'index/ios_style_widget.dart';
 import 'index/listView_widget.dart';
+import '../Framework/muke_wangneng.dart';
 import 'index/padding_margin_widget.dart';
 import 'index/phone_number_page.dart';
 import 'index/progress_widget.dart';
@@ -39,595 +52,126 @@ import 'index/stack_widget.dart';
 import 'index/text_widget.dart';
 import 'index/textfeild.widget.dart';
 import 'index/video_widget.dart';
-import 'index/wrap_page.dart';
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
+
 }
 
+List<Map> nameList = [
+  {"nam":AudioPlaybackPage(), "name":"音频播放"},
+  {"nam":Bang(), "name":"首页"}, {"nam":ClassSort(), "name":"侧边导航栏"},
+  {"nam":Inform(), "name":"'信息详情"}, {"nam":Xinjixueyuan(), "name":"搜索页面"},
+  {"nam":NovelReading(), "name":"'NovelReading',"}, {"nam":Bang(), "name":"ScrollViewPage"},
+  {"nam":Bang(), "name":"'ScrollView',"}, {"nam":AuxiliaryFunctions(), "name":"辅助功能"},
+  {"nam":JitterPage(), "name":"抖动"}, {"nam":InteractionModel(), "name":"交互模型"},
+  {"nam":ClipPathWidget(), "name":"ClipRect绘制"}, {"nam":CustompaintWidget(title: '绘制时钟与温度计'), "name":"绘制时钟"},
+  {"nam":CardWidget(), "name":"Card卡片"}, {"nam":ContainerWidget(), "name":"Container盒子"},
+  {"nam":IconWidget(), "name":"Icon图标"}, {"nam":FlutterLogoWidget(), "name":"FlutterLogo"},
+  {"nam":TextWidget(), "name":"Text"}, {"nam":PlaceholdWidget(), "name":"Placehold"},
+  {"nam":PaddingMargin(), "name":"内边距与外边距"}, {"nam":ColumnRow(), "name":"垂直布局与水平布局"},
+  {"nam":AnimationWidget(), "name":"基本动画"}, {"nam":ImagesWidget(), "name":"Image图片"},
+  {"nam":ImagesWidget(), "name":"辅助功能"}, {"nam":IosStyleWidget(), "name":"ios风格组件"},
+  {"nam":AppbarWidget(), "name":"AppBar头部导航"}, {"nam":TabbarWidget(), "name":"TabBar"},
+  {"nam":StackWidget(), "name":"层叠组件"}, {"nam":SwiperWidget(), "name":"Swiper轮播图"},
+  {"nam":ProgressWidget(), "name":"Progress进度条"}, {"nam":CameraPhotos1Widget(), "name":"拍照,相册上传"},
+  {"nam":ButtonWidget(), "name":"各种Button"}, {"nam":AdaptorWidget(), "name":"时间地点日期选择器"},
+  {"nam":ConmiunicationWidget(), "name":"'聊天页面"}, {"nam":TextfeildWidget(), "name":"文本框"},
+  {"nam":ListViewWidget(), "name":"'ListView',"}, {"nam":GridViewWidget(), "name":"'GridView',"},
+  {"nam":DialogWidget(), "name":"各种弹窗"}, {"nam":GestureDetectorWidget(), "name":"点击事件"},
+  {"nam":ViodeWidget(), "name":"视频播放"}, {"nam":GridViewWidget(), "name":"抽离组件"},
+  {"nam":GridViewWidget(), "name":"建立数据模型"}, {"nam":GridViewWidget(), "name":"异步编程"},
+  {"nam":GridViewWidget(), "name":"侧边栏"}, {"nam":GridViewWidget(), "name":"dio请求"},
+  {"nam":GridViewWidget(), "name":"post请求"}, {"nam":LoginViewModel(), "name":"mvvm框架"},
+  {"nam":GridViewWidget(), "name":"屏幕适配"}, {"nam":GridViewWidget(), "name":"全局主题"},
+  {"nam":Sex(), "name":"组件复用"}, {"nam":ExemptDeposit(), "name":"弹出菜单"},
+  {"nam":ExemptDeposit(), "name":"flare游戏"},
+];
 class _HomePageState extends State<HomePage> {
+  bool isClick = false;
+  int i;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Container(
       child: Scaffold(
-//        appBar: AppBar(
-//          title: Text('Flutter基本组件'),
-//          centerTitle: true,
-//          elevation: 0,
-//        ),
+        appBar: AppBar(
+          actions: [
+            InkWell(
+                onTap: (){
+                  setState(() {
+                    if (isClick == true){
+                      isClick = false;
+                    }else{
+                      isClick = true;
+                    }
+                  });
+                },
+                child: isClick == false
+                    ?Icon(Icons.apps)
+                    :Icon(Icons.calendar_view_day ),
+            ),
+          ],
+        ),
         body: Center(
-          child: GridView.count(
-            crossAxisCount: 2,
-            primary: false,
-            crossAxisSpacing: 8.0,
-            mainAxisSpacing: 8.0,
-            padding: EdgeInsets.all(10),
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => WrapPage(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'ScrollView',
-                ),
+          child:
+          isClick == false
+              ?GridView.builder(
+              itemCount: nameList.length,
+              padding: EdgeInsets.all(10),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ScrollViewPage(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'ScrollView',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AuxiliaryFunctions(),
-                      ));
-                },
-                child: Container01(
-                  text01: '辅助功能',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => JitterPage(),
-                      ));
-                },
-                child: Container01(
-                  text01: '抖动',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InteractionModel(),
-                      ));
-                },
-                child: Container01(
-                  text01: '交互模型',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ClipPathWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'ClipRect绘制',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CustompaintWidget(title: '绘制时钟与温度计'),
-                      ));
-                },
-                child: Container01(
-                  text01: '绘制时钟',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CardWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'Card卡片',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ContainerWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'Container盒子',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => IconWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'Icon图标',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => FlutterLogoWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'FlutterLogo',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TextWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'Text',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PlaceholdWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'Placehold',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PaddingMargin(),
-                      ));
-                },
-                child: Container01(
-                  text01: '内边距与外边距',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ColumnRow(),
-                      ));
-                },
-                child: Container01(
-                  text01: '垂直布局与水平布局',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AnimationWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '基本动画',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ImagesWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'Image图片',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ImagesWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '辅助功能',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => IosStyleWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'ios风格组件',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AppbarWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'AppBar头部导航',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TabbarWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'TabBar',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => StackWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '层叠组件',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SwiperWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'Swiper轮播图',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProgressWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'Progress进度条',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CameraPhotos1Widget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '拍照,相册上传',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ButtonWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '各种Button',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AdaptorWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '时间地点日期选择器',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ConmiunicationWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '聊天页面',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TextfeildWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '文本框',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ListViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'ListView',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GridViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'GridView',
-                ),
-              ),
+              itemBuilder: (BuildContext context, int index) {
+                return InkWell(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => nameList[index]["nam"],
+                        ));
+                  },
+                  child:  Container01(
+                    text01: nameList[index]["name"],
+                  ),
+                );
+              })
+              : ListView.builder(
+              itemCount: nameList.length,
+              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              itemBuilder: (context,index){
+                return InkWell(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => nameList[index]["nam"],
+                        ));
+                  },
+                  child:  Container01(
+                    text01: nameList[index]["name"],
+                  ),
+                );
+              }),
 
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DialogWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '各种弹窗',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GestureDetectorWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '点击事件',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ViodeWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '视频播放',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GridViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '抽离组件',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GridViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '建立数据模型',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GridViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '异步编程',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DrawerWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '侧边栏',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GridViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'dio请求',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GridViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'post请求',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (_) => LoginViewModel(),
-                          child: LoginWidget(),
-                        ),
-                      ));
-                },
-                child: Container01(
-                  text01: 'mvvm框架',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GridViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '屏幕适配',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GridViewWidget(),
-                      ));
-                },
-                child: Container01(
-                  text01: '全局主题',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Sex(),
-                      ));
-                },
-                child: Container01(
-                  text01: '组件复用',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ExemptDeposit(),
-                      ));
-                },
-                child: Container01(
-                  text01: '弹出菜单',
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ExemptDeposit(),
-                      ));
-                },
-                child: Container01(
-                  text01: 'flare游戏',
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );
   }
 }
+
+
 
 class Container01 extends StatefulWidget {
   final text01;
@@ -643,8 +187,8 @@ class _Container01State extends State<Container01> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 80,
-        width: 80,
+      height: 190,
+        margin: EdgeInsets.only(bottom: 10),
         decoration: BoxDecoration(
           color: Colors.lightBlueAccent,
           borderRadius: BorderRadius.circular(20),

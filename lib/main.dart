@@ -47,8 +47,8 @@ class MyApp extends StatelessWidget {
             display1: TextStyle(fontSize: 10),
           )
       ),
-//     home: Tabs(),
-    home: StartWidget(),
+     home: Tabs(),
+//    home: StartWidget(),
 //   home:IdentityPage()
 //      home: ChangeNotifierProvider(
 //        create: (_) => LoginViewModel(),
