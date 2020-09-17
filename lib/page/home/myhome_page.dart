@@ -66,7 +66,7 @@ class HomePage extends StatefulWidget {
 }
 
 List<Map> nameList = [
-  {"nam":StatePage(), "name":"状态管理"},{"nam":State2Page(), "name":"状态刷新"},
+  {"nam":StatePage(), "name":"状态管理"},{"nam":State2Page(), "name":"状态管理2"},
   {"nam":ListTilePage(), "name":"ListTile"},{"nam":DataTablePage(), "name":"DataTablePage"},
   {"nam":AudioPlaybackPage(), "name":"音频播放"},{"nam":DraggableScrollableSheet_Page(), "name":"组件滑动"},
   {"nam":Bang(), "name":"首页"}, {"nam":ClassSort(), "name":"侧边导航栏"},
