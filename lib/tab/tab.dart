@@ -38,7 +38,7 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin{
     _navigationViews = <NavigationIconView>[
       new NavigationIconView(icon: new Icon(Icons.assessment), title: new Text("组件"), vsync: this), // vsync 默认属性和参数
       new NavigationIconView(icon: new Icon(Icons.burst_mode), title: new Text("路由管理"), vsync: this),
-      new NavigationIconView(icon: new Icon(Icons.apps), title: new Text("状态管理"), vsync: this),
+//      new NavigationIconView(icon: new Icon(Icons.apps), title: new Text("状态管理"), vsync: this),
       new NavigationIconView(icon: new Icon(Icons.cloud_queue), title: new Text("Dart语言"), vsync: this),
       new NavigationIconView(icon: new Icon(Icons.perm_identity), title: new Text("个人"), vsync: this),
     ];
@@ -52,7 +52,7 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin{
     _pageList = <StatefulWidget>[
       new HomePage(),
       new FrameworkWidget(),
-      new StateWidget(),
+//      new StateWidget(),
       new Grammar(),
       new Persion(),
     ];
@@ -82,16 +82,24 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin{
     return new MaterialApp(
       home: new Scaffold(
         appBar: AppBar(
+
 //          leading: GestureDetector(
 //            onTap: (){
 //
 //            },
 //            child: Icon(Icons.keyboard_arrow_left),
 //          ),
+
         ),
         body: new Center(
             child: _currentPage // 动态的展示我们当前的页面
         ),
+        floatingActionButton: FloatingActionButton(
+            backgroundColor:Colors.white,
+            elevation: 0,
+        child: Icon(Icons.add,size: 35,color:Colors.blue,),
+      ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: bottomNavigationBar,
         drawer: NewWidget03(),// 底部工具栏
 //          drawer: Drawer(),
