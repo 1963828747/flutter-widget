@@ -8,6 +8,10 @@ import 'package:widget/other/inform.dart';
 import 'package:widget/other/result_determination.dart';
 import 'package:widget/other/xinjixueyuan.dart';
 import 'package:widget/page/home/index02/audio_page.dart';
+import 'package:widget/page/home/index02/data_table_page.dart';
+import 'package:widget/page/home/index02/list_tile_page.dart';
+import 'package:widget/page/home/index02/state2_page.dart';
+import 'package:widget/page/home/index02/state_page.dart';
 import 'package:widget/view/login_widget.dart';
 import 'package:widget/view_models/login_view_model.dart';
 import '../../main.dart';
@@ -52,6 +56,7 @@ import 'index/stack_widget.dart';
 import 'index/text_widget.dart';
 import 'index/textfeild.widget.dart';
 import 'index/video_widget.dart';
+import 'index02/draggablescrollablesheet_page.dart';
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
@@ -61,7 +66,9 @@ class HomePage extends StatefulWidget {
 }
 
 List<Map> nameList = [
-  {"nam":AudioPlaybackPage(), "name":"音频播放"},
+  {"nam":StatePage(), "name":"状态管理"},{"nam":State2Page(), "name":"状态刷新"},
+  {"nam":ListTilePage(), "name":"ListTile"},{"nam":DataTablePage(), "name":"DataTablePage"},
+  {"nam":AudioPlaybackPage(), "name":"音频播放"},{"nam":DraggableScrollableSheet_Page(), "name":"组件滑动"},
   {"nam":Bang(), "name":"首页"}, {"nam":ClassSort(), "name":"侧边导航栏"},
   {"nam":Inform(), "name":"'信息详情"}, {"nam":Xinjixueyuan(), "name":"搜索页面"},
   {"nam":NovelReading(), "name":"'NovelReading',"}, {"nam":Bang(), "name":"ScrollViewPage"},
@@ -86,8 +93,7 @@ List<Map> nameList = [
   {"nam":GridViewWidget(), "name":"侧边栏"}, {"nam":GridViewWidget(), "name":"dio请求"},
   {"nam":GridViewWidget(), "name":"post请求"}, {"nam":LoginViewModel(), "name":"mvvm框架"},
   {"nam":GridViewWidget(), "name":"屏幕适配"}, {"nam":GridViewWidget(), "name":"全局主题"},
-  {"nam":Sex(), "name":"组件复用"}, {"nam":ExemptDeposit(), "name":"弹出菜单"},
-  {"nam":ExemptDeposit(), "name":"flare游戏"},
+  {"nam":Sex(), "name":"三目运算"}, {"nam":ExemptDeposit(), "name":"弹出菜单"},
 ];
 class _HomePageState extends State<HomePage> {
   bool isClick = false;
@@ -105,6 +111,8 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.grey[200],
           actions: [
             InkWell(
                 onTap: (){
@@ -117,8 +125,8 @@ class _HomePageState extends State<HomePage> {
                   });
                 },
                 child: isClick == false
-                    ?Icon(Icons.apps)
-                    :Icon(Icons.calendar_view_day ),
+                    ?Icon(Icons.apps,color: Colors.blue,)
+                    :Icon(Icons.calendar_view_day ,color: Colors.blue,),
             ),
           ],
         ),

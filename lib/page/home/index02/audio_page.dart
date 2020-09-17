@@ -1,14 +1,13 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-class AudioPlaybackPage extends StatefulWidget {
 
+class AudioPlaybackPage extends StatefulWidget {
   @override
   _AudioPlaybackPageState createState() => _AudioPlaybackPageState();
 }
 
 class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
-
   String url;
   PlayerMode mode;
 
@@ -23,7 +22,9 @@ class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
   StreamSubscription _playerStateSubscription;
 
   get _durationText => _duration?.toString()?.split('.')?.first ?? '';
+
   get _positionText => _position?.toString()?.split('.')?.first ?? '';
+
   @override
   void initState() {
     // TODO: implement initState
@@ -44,34 +45,31 @@ class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
     super.dispose();
   }
 
-
-  _initAudioPlayer(){
+  _initAudioPlayer() {
     //  /// Ideal for long media files or streams.
-    mode =PlayerMode.MEDIA_PLAYER;
+    mode = PlayerMode.MEDIA_PLAYER;
     //初始化
     _audioPlayer = AudioPlayer(mode: mode);
 
     _durationSubscription = _audioPlayer.onDurationChanged.listen((duration) {
       setState(() => _duration = duration);
-
-
     });
 
     //监听进度
     _positionSubscription =
         _audioPlayer.onAudioPositionChanged.listen((p) => setState(() {
-          print(p);
-          _position = p;
-        }));
+              print(p);
+              _position = p;
+            }));
 
     //播放完成
     _playerCompleteSubscription =
         _audioPlayer.onPlayerCompletion.listen((event) {
 //          _onComplete();
-          setState(() {
-            _position = Duration();
-          });
-        });
+      setState(() {
+        _position = Duration();
+      });
+    });
 
     //监听报错
     _playerErrorSubscription = _audioPlayer.onPlayerError.listen((msg) {
@@ -86,9 +84,7 @@ class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
     //播放状态改变
     _audioPlayer.onPlayerStateChanged.listen((state) {
       if (!mounted) return;
-      setState(() {
-
-      });
+      setState(() {});
     });
 
     ///// iOS中来自通知区域的玩家状态变化流。
@@ -97,19 +93,18 @@ class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
 //    });
 
 //    _playingRouteState = PlayingRouteState.speakers;
-
   }
 
   //开始播放
   void _play() async {
     final playPosition = (_position != null &&
-        _duration != null &&
-        _position.inMilliseconds > 0 &&
-        _position.inMilliseconds < _duration.inMilliseconds)
+            _duration != null &&
+            _position.inMilliseconds > 0 &&
+            _position.inMilliseconds < _duration.inMilliseconds)
         ? _position
         : null;
     final result = await _audioPlayer.play(url, position: playPosition);
-    if (result == 1){
+    if (result == 1) {
       print('succes');
     }
 
@@ -117,13 +112,12 @@ class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
     // this should be called after _audioPlayer.play() or _audioPlayer.resume()
     // this can also be called everytime the user wants to change playback rate in the UI
 //    _audioPlayer.setPlaybackRate(playbackRate: 1.0);
-
   }
 
   //暂停
   void _pause() async {
     final result = await _audioPlayer.pause();
-    if (result == 1){
+    if (result == 1) {
       print('succes');
     }
   }
@@ -141,21 +135,22 @@ class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          appBar: AppBar(
-            title: Text('音频播放'),
-            centerTitle: true,
-            leading: GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(Icons.keyboard_arrow_left)),
-          ),
+        appBar: AppBar(
+          title: Text('音频播放'),
+          centerTitle: true,
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.keyboard_arrow_left)),
+        ),
         body: Column(
           children: <Widget>[
-
-            Text(    _position != null
-                ? '${_positionText ?? ''} / ${_durationText ?? ''}'
-                : _duration != null ? _durationText : '',),
+            Text(
+              _position != null
+                  ? '${_positionText ?? ''} / ${_durationText ?? ''}'
+                  : _duration != null ? _durationText : '',
+            ),
             Padding(
               padding: EdgeInsets.all(12.0),
               child: Stack(
@@ -167,9 +162,9 @@ class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
                           .seek(Duration(milliseconds: Position.round()));
                     },
                     value: (_position != null &&
-                        _duration != null &&
-                        _position.inMilliseconds > 0 &&
-                        _position.inMilliseconds < _duration.inMilliseconds)
+                            _duration != null &&
+                            _position.inMilliseconds > 0 &&
+                            _position.inMilliseconds < _duration.inMilliseconds)
                         ? _position.inMilliseconds / _duration.inMilliseconds
                         : 0.0,
                   ),
@@ -178,21 +173,24 @@ class _AudioPlaybackPageState extends State<AudioPlaybackPage> {
             ),
             Row(
               children: <Widget>[
-
-                IconButton(icon: Icon(Icons.play_arrow), onPressed: (){
-                  _play();
-                }),
-                IconButton(icon: Icon(Icons.pause), onPressed: (){
-                  _pause();
-                }),
-                IconButton(icon: Icon(Icons.stop), onPressed: (){
-                  _stop();
-                }),
+                IconButton(
+                    icon: Icon(Icons.play_arrow),
+                    onPressed: () {
+                      _play();
+                    }),
+                IconButton(
+                    icon: Icon(Icons.pause),
+                    onPressed: () {
+                      _pause();
+                    }),
+                IconButton(
+                    icon: Icon(Icons.stop),
+                    onPressed: () {
+                      _stop();
+                    }),
               ],
             )
           ],
-        )
-    );
+        ));
   }
-
 }
