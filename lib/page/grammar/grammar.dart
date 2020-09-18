@@ -12,12 +12,11 @@ class Grammar extends StatefulWidget {
 class _GrammarState extends State<Grammar> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
-//        appBar:AppBar(
-//          title: Text('Dart语言'),
-//          centerTitle: true,
-//        ),
+    return Scaffold(
+        appBar:AppBar(
+          title: Text('Dart语言'),
+          centerTitle: true,
+        ),
         body: Center(
           child: ListView(
 //          crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,8 +98,7 @@ class _GrammarState extends State<Grammar> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
 

@@ -3,6 +3,7 @@ import 'package:widget/page/Framework/framework_widget.dart';
 import 'package:widget/page/Framework/muke_wangneng.dart';
 import 'package:widget/page/grammar/grammar.dart';
 import 'package:widget/page/home/index/drawer_widget.dart';
+import 'package:widget/page/home/index02/computer_page.dart';
 import 'package:widget/page/home/myhome_page.dart';
 import 'package:widget/page/persion/persion.dart';
 import 'package:widget/page/statewidget/statewidget.dart';
@@ -81,23 +82,26 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin{
 
     return new MaterialApp(
       home: new Scaffold(
-        appBar: AppBar(
-
-//          leading: GestureDetector(
-//            onTap: (){
+//        appBar: AppBar(
 //
-//            },
-//            child: Icon(Icons.keyboard_arrow_left),
-//          ),
-
-        ),
+////          leading: GestureDetector(
+////            onTap: (){
+////
+////            },
+////            child: Icon(Icons.keyboard_arrow_left),
+////          ),
+//
+//        ),
         body: new Center(
             child: _currentPage // 动态的展示我们当前的页面
         ),
         floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>ComputerPage()));
+          },
             backgroundColor:Colors.white,
             elevation: 0,
-        child: Icon(Icons.add,size: 35,color:Colors.blue,),
+        child: Icon(Icons.gradient,size: 35,color:Colors.blue,),
       ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: bottomNavigationBar,

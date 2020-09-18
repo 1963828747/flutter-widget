@@ -7,11 +7,18 @@ import 'package:widget/other/cost_description.dart';
 import 'package:widget/other/inform.dart';
 import 'package:widget/other/result_determination.dart';
 import 'package:widget/other/xinjixueyuan.dart';
+import 'package:widget/page/home/index02/aspedtratio_page.dart';
 import 'package:widget/page/home/index02/audio_page.dart';
 import 'package:widget/page/home/index02/data_table_page.dart';
+import 'package:widget/page/home/index02/fadetransition_page.dart';
+import 'package:widget/page/home/index02/frationallyfizedbox_page.dart';
+import 'package:widget/page/home/index02/limitedbox_page.dart';
 import 'package:widget/page/home/index02/list_tile_page.dart';
+import 'package:widget/page/home/index02/slider_page.dart';
+import 'package:widget/page/home/index02/sliver_page.dart';
 import 'package:widget/page/home/index02/state2_page.dart';
 import 'package:widget/page/home/index02/state_page.dart';
+import 'package:widget/page/home/index02/togglebuttons_page.dart';
 import 'package:widget/view/login_widget.dart';
 import 'package:widget/view_models/login_view_model.dart';
 import '../../main.dart';
@@ -66,6 +73,10 @@ class HomePage extends StatefulWidget {
 }
 
 List<Map> nameList = [
+  {"nam":DraggablePage(), "name":"长按移动"},{"nam":SliverPage(), "name":"SliverPage"},
+  {"nam":SliderPage(), "name":"参数设置"},{"nam":AspedtratioPage(), "name":"Aspedtratio"},
+  {"nam":FrationallySizedBox(), "name":"Widget百分比"},{"nam":LimitedBoxPage(), "name":"LimitedBoxPage"},
+  {"nam":FadeTransitionPage(), "name":"转场动画"},{"nam":ToggleButtonPage(), "name":"多项选择按钮"},
   {"nam":StatePage(), "name":"状态管理"},{"nam":State2Page(), "name":"状态管理2"},
   {"nam":ListTilePage(), "name":"ListTile"},{"nam":DataTablePage(), "name":"DataTablePage"},
   {"nam":AudioPlaybackPage(), "name":"音频播放"},{"nam":DraggableScrollableSheet_Page(), "name":"组件滑动"},
@@ -73,7 +84,7 @@ List<Map> nameList = [
   {"nam":Inform(), "name":"'信息详情"}, {"nam":Xinjixueyuan(), "name":"搜索页面"},
   {"nam":NovelReading(), "name":"'NovelReading',"}, {"nam":Bang(), "name":"ScrollViewPage"},
   {"nam":Bang(), "name":"'ScrollView',"}, {"nam":AuxiliaryFunctions(), "name":"辅助功能"},
-  {"nam":JitterPage(), "name":"抖动"}, {"nam":InteractionModel(), "name":"交互模型"},
+  {"nam":JitterPage(), "name":"抖动"},
   {"nam":ClipPathWidget(), "name":"ClipRect绘制"}, {"nam":CustompaintWidget(title: '绘制时钟与温度计'), "name":"绘制时钟"},
   {"nam":CardWidget(), "name":"Card卡片"}, {"nam":ContainerWidget(), "name":"Container盒子"},
   {"nam":IconWidget(), "name":"Icon图标"}, {"nam":FlutterLogoWidget(), "name":"FlutterLogo"},
@@ -112,7 +123,8 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.grey[200],
+          centerTitle: true,
+          title: Text('Widget'),
           actions: [
             InkWell(
                 onTap: (){
@@ -125,8 +137,8 @@ class _HomePageState extends State<HomePage> {
                   });
                 },
                 child: isClick == false
-                    ?Icon(Icons.apps,color: Colors.blue,)
-                    :Icon(Icons.calendar_view_day ,color: Colors.blue,),
+                    ?Icon(Icons.apps,color: Colors.white,)
+                    :Icon(Icons.calendar_view_day ,color: Colors.white,),
             ),
           ],
         ),

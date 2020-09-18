@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'images_widget.dart';
 import '../myhome_page.dart';
 
-class InteractionModel extends StatefulWidget {
+class DraggablePage extends StatefulWidget {
   @override
-  _InteractionModelState createState() => _InteractionModelState();
+  _DraggablePageState createState() => _DraggablePageState();
 }
 
-class _InteractionModelState extends State<InteractionModel> {
+class _DraggablePageState extends State<DraggablePage> {
   var _dragData;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        title: Text('InteractionModel'),
+        title: Text('Draggablee'),
         centerTitle: true,
         leading: GestureDetector(
             onTap: (){

@@ -23,13 +23,15 @@ class _FrameworkWidgetState extends State<FrameworkWidget> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-//          appBar: AppBar(
-//            title: Text('路由管理'),
-//            centerTitle: true,
-//          ),
+          appBar: AppBar(
+            title: Text('路由管理'),
+            centerTitle: true,
+          ),
           body: Container(
             height: MediaQuery.of(context).size.height,
-            child: Column(
+            child: ListView(
+              padding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+              shrinkWrap: true,
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
@@ -54,27 +56,25 @@ class _FrameworkWidgetState extends State<FrameworkWidget> {
                     ),
                   ),),
                 Expanded(
-                  child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
-                      shrinkWrap: true,
-                      children: <Widget>[
-                        Container03(
-                          text01: '静态路由',
-                        ),
-                        Container03(
-                          text01: '动态路由',
-                        ),
-                        Container03(
-                          text01: '参数回传',
-                        ),
-                        Container03(
-                          text01: '路由栈',
-                        ),
-                        Container03(
-                          text01: '自定义路由',
-                        ),
-                      ],
-                  ),
+                  child: Column(
+                    children: [
+                      Container03(
+                        text01: '静态路由',
+                      ),
+                      Container03(
+                        text01: '动态路由',
+                      ),
+                      Container03(
+                        text01: '参数回传',
+                      ),
+                      Container03(
+                        text01: '路由栈',
+                      ),
+                      Container03(
+                        text01: '自定义路由',
+                      ),
+                    ],
+                  )
                 ),
               ],
             ),
@@ -97,7 +97,7 @@ class _Container03State extends State<Container03> {
   Widget build(BuildContext context) {
     return Container(
         height: 80,
-        width: 80,
+        width: MediaQuery.of(context).size.width,
         margin: EdgeInsets.only(bottom: 5),
         decoration: BoxDecoration(
           color: Colors.teal,

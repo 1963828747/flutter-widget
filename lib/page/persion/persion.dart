@@ -10,6 +10,10 @@ class _PersionState extends State<Persion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:AppBar(
+        title: Text('个人'),
+        centerTitle: true,
+      ),
         body: Container(
           height: MediaQuery.of(context).size.height,
           child: ListView(
@@ -83,6 +87,9 @@ class _PersionState extends State<Persion> {
                     ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 30,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
