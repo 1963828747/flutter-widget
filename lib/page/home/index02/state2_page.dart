@@ -19,7 +19,7 @@ class _State2PageState extends State<State2Page> {
       _count,
       child: Scaffold(
             appBar: AppBar(
-          title: Text('状态管理2'),
+          title: Text('状态刷新'),
           centerTitle: true,
           leading: GestureDetector(
               onTap: () {
