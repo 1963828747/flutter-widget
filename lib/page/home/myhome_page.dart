@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,11 +10,16 @@ import 'package:widget/other/result_determination.dart';
 import 'package:widget/other/xinjixueyuan.dart';
 import 'package:widget/page/home/index02/aspedtratio_page.dart';
 import 'package:widget/page/home/index02/audio_page.dart';
+import 'package:widget/page/home/index02/charts_page.dart';
 import 'package:widget/page/home/index02/data_table_page.dart';
+import 'package:widget/page/home/index02/get_page.dart';
+import 'package:widget/page/home/index02/fadeinimage_page.dart';
 import 'package:widget/page/home/index02/fadetransition_page.dart';
 import 'package:widget/page/home/index02/frationallyfizedbox_page.dart';
 import 'package:widget/page/home/index02/limitedbox_page.dart';
 import 'package:widget/page/home/index02/list_tile_page.dart';
+import 'package:widget/page/home/index02/reoderablelistview_page.dart';
+import 'package:widget/page/home/index02/rount1_page.dart';
 import 'package:widget/page/home/index02/slider_page.dart';
 import 'package:widget/page/home/index02/sliver_page.dart';
 import 'package:widget/page/home/index02/state2_page.dart';
@@ -64,6 +70,7 @@ import 'index/text_widget.dart';
 import 'index/textfeild.widget.dart';
 import 'index/video_widget.dart';
 import 'index02/draggablescrollablesheet_page.dart';
+import 'index02/slivergrid_list_page.dart';
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
@@ -73,6 +80,9 @@ class HomePage extends StatefulWidget {
 }
 
 List<Map> nameList = [
+  {"nam":GetPage(), "name":"get post请求"},{"nam":ReoderableListviewPage(), "name":"ReoderableListviewPage"},
+  {"nam":ChartsPage(), "name":"Charts折现图"},{"nam":Rount1Page(), "name":"Rount1Page"},
+  {"nam":SliverGridListPage(), "name":"SliverGridListPage"},{"nam":FadeInImagePage(), "name":"FadeInImagePage"},
   {"nam":DraggablePage(), "name":"长按移动"},{"nam":SliverPage(), "name":"SliverPage"},
   {"nam":SliderPage(), "name":"参数设置"},{"nam":AspedtratioPage(), "name":"Aspedtratio"},
   {"nam":FrationallySizedBox(), "name":"Widget百分比"},{"nam":LimitedBoxPage(), "name":"LimitedBoxPage"},
@@ -99,10 +109,9 @@ List<Map> nameList = [
   {"nam":ConmiunicationWidget(), "name":"'聊天页面"}, {"nam":TextfeildWidget(), "name":"文本框"},
   {"nam":ListViewWidget(), "name":"'ListView',"}, {"nam":GridViewWidget(), "name":"'GridView',"},
   {"nam":DialogWidget(), "name":"各种弹窗"}, {"nam":GestureDetectorWidget(), "name":"点击事件"},
-  {"nam":ViodeWidget(), "name":"视频播放"}, {"nam":GridViewWidget(), "name":"抽离组件"},
-  {"nam":GridViewWidget(), "name":"建立数据模型"}, {"nam":GridViewWidget(), "name":"异步编程"},
-  {"nam":GridViewWidget(), "name":"侧边栏"}, {"nam":GridViewWidget(), "name":"dio请求"},
-  {"nam":GridViewWidget(), "name":"post请求"}, {"nam":LoginViewModel(), "name":"mvvm框架"},
+  {"nam":ViodeWidget(), "name":"视频播放"}, {"nam":GridViewWidget(), "neame":"抽离组件"},
+  {"nam":GridViewWidget(), "name":"建立数据模型"}, {"nam":GetPage(), "name":"异步编程"},
+  {"nam":GridViewWidget(), "name":"侧边栏"},{ "nam":LoginViewModel(), "name":"mvvm框架"},
   {"nam":GridViewWidget(), "name":"屏幕适配"}, {"nam":GridViewWidget(), "name":"全局主题"},
   {"nam":Sex(), "name":"三目运算"}, {"nam":ExemptDeposit(), "name":"弹出菜单"},
 ];

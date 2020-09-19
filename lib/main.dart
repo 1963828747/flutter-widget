@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:widget/page/home/index/start_widget.dart';
+import 'package:widget/page/home/index02/rount1_page.dart';
+import 'package:widget/page/home/index02/rount2_page.dart';
+import 'package:widget/page/home/index02/rount3_page.dart';
+import 'package:widget/page/home/index02/rount4_page.dart';
 import 'package:widget/tab/tab.dart';
 import 'package:widget/view/login_widget.dart';
 import 'package:widget/view_models/login_view_model.dart';
@@ -42,11 +46,18 @@ class MyApp extends StatelessWidget {
               height: 38
           ),
           // 7.文本主题
-          textTheme: TextTheme(
-            title: TextStyle(fontSize: 30, color: Colors.blue),
-            display1: TextStyle(fontSize: 10),
-          )
+//          textTheme: TextTheme(
+//            title: TextStyle(fontSize: 30, color: Colors.blue),
+//            display1: TextStyle(fontSize: 10),
+//          )
       ),
+      routes: {
+        '/screen1': (context) => Rount1Page(),
+        '/screen2': (context) => Rount2Page(),
+        '/screen3': (context) => Rount3Page(),
+        '/screen4': (context) => Rount4Page(),
+      },
+//      initialRoute: '/screen1',
      home: Tabs(),
 //    home: StartWidget(),
 //   home:IdentityPage()
