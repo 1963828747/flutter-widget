@@ -11,6 +11,9 @@ class TextfeildWidget extends StatefulWidget {
 class _TextfeildWidgetState extends State<TextfeildWidget> {
   @override
   Widget build(BuildContext context) {
+
+    final TextEditingController _controller = new TextEditingController();
+
     var controller = TextEditingController();
     controller.addListener(() {
       print('controller:${controller.text}');
@@ -101,12 +104,25 @@ class _TextfeildWidgetState extends State<TextfeildWidget> {
                       fillColor: Colors.red,
                     ),
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                  RaisedButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        child: new AlertDialog(
+                          title: new Text('What you typed'),
+                          content: new Text(_controller.text),
+                        ),
+                      );
+                    },
+                    child: new Text('DONE'),
                   ),
+                  TextField(
+                    controller: _controller,
+                    decoration: InputDecoration(
+                      filled: true,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                    ),
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.search,
                     obscureText: true,
