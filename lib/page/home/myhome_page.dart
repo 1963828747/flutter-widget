@@ -8,6 +8,9 @@ import 'package:widget/other/cost_description.dart';
 import 'package:widget/other/inform.dart';
 import 'package:widget/other/result_determination.dart';
 import 'package:widget/other/xinjixueyuan.dart';
+import 'package:widget/page/home/index02/animatedcrossfade_page.dart';
+import 'package:widget/page/home/index02/animatedpadding_page.dart';
+import 'package:widget/page/home/index02/animatedpositioned_page.dart';
 import 'package:widget/page/home/index02/aspedtratio_page.dart';
 import 'package:widget/page/home/index02/audio_page.dart';
 import 'package:widget/page/home/index02/charts_page.dart';
@@ -20,6 +23,7 @@ import 'package:widget/page/home/index02/limitedbox_page.dart';
 import 'package:widget/page/home/index02/list_tile_page.dart';
 import 'package:widget/page/home/index02/reoderablelistview_page.dart';
 import 'package:widget/page/home/index02/rount1_page.dart';
+import 'package:widget/page/home/index02/selectable_text.dart';
 import 'package:widget/page/home/index02/slider_page.dart';
 import 'package:widget/page/home/index02/sliver_page.dart';
 import 'package:widget/page/home/index02/state2_page.dart';
@@ -78,8 +82,11 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 
 }
-
+// {"nam":(), "name":""},
 List<Map> nameList = [
+  {"nam":AnimatedPositionedPage(), "name":"AnimatedPositionedPage"},
+  {"nam":AnimatedPaddingPage(), "name":"AnimatedPaddingPage"},
+  {"nam":SelectableTextPage(), "name":"SelectableText"},{"nam":AnimatedCrossFadePage(), "name":"AnimatedCrossFadePage"},
   {"nam":GetPage(), "name":"get post请求"},{"nam":ReoderableListviewPage(), "name":"ReoderableListviewPage"},
   {"nam":ChartsPage(), "name":"Charts折现图"},{"nam":Rount1Page(), "name":"Rount1Page"},
   {"nam":SliverGridListPage(), "name":"SliverGridListPage"},{"nam":FadeInImagePage(), "name":"FadeInImagePage"},
@@ -109,8 +116,7 @@ List<Map> nameList = [
   {"nam":ConmiunicationWidget(), "name":"'聊天页面"}, {"nam":TextfeildWidget(), "name":"文本框"},
   {"nam":ListViewWidget(), "name":"'ListView',"}, {"nam":GridViewWidget(), "name":"'GridView',"},
   {"nam":DialogWidget(), "name":"各种弹窗"}, {"nam":GestureDetectorWidget(), "name":"点击事件"},
-  {"nam":ViodeWidget(), "name":"视频播放"}, {"nam":GridViewWidget(), "neame":"抽离组件"},
-  {"nam":GridViewWidget(), "name":"建立数据模型"}, {"nam":GetPage(), "name":"异步编程"},
+  {"nam":ViodeWidget(), "name":"视频播放"}, {"nam":GetPage(), "name":"异步编程"},
   {"nam":GridViewWidget(), "name":"侧边栏"},{ "nam":LoginViewModel(), "name":"mvvm框架"},
   {"nam":GridViewWidget(), "name":"屏幕适配"}, {"nam":GridViewWidget(), "name":"全局主题"},
   {"nam":Sex(), "name":"三目运算"}, {"nam":ExemptDeposit(), "name":"弹出菜单"},
