@@ -74,7 +74,7 @@ class _ListViewWidgetState extends State<ListViewWidget> {
             ),),
             Text('ListView.builder用于建立重复组件'),
             Container(
-                height:100,
+              height:100,
                 child: ListView.builder(
                 itemCount: 3,
                 itemBuilder: (context,index){

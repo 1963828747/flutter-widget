@@ -17,7 +17,8 @@ class _LimitedBoxPageState extends State<LimitedBoxPage> {
             },
             child: Icon(Icons.keyboard_arrow_left)),
       ),
-      body: Row(
+      body: ListView(
+        shrinkWrap: true,
       children: [
         Container(
           color: Colors.grey,

@@ -326,7 +326,7 @@ class _MukeWangNengState extends State<MukeWangNeng>
                                               borderRadius:
                                               BorderRadius.circular(40.0),
                                             ),
-                                            height: 112,
+                                            height: 142,
                                             width: 358, //无穷数 / 无尽期 / 无穷 / 无限大
                                             child: AspectRatio(
                                               aspectRatio: 16 / 9, //设置子组件宽高比，防止变形
@@ -335,6 +335,7 @@ class _MukeWangNengState extends State<MukeWangNeng>
                                                     (BuildContext context,
                                                     int index) {
                                                   return Container(
+                                                    margin: EdgeInsets.only(bottom: 20),
                                                     padding: EdgeInsets.only(left: 10,right: 10),
                                                     child: ClipRRect(
                                                         borderRadius: BorderRadius.circular(10),
@@ -350,7 +351,8 @@ class _MukeWangNengState extends State<MukeWangNeng>
                                                   Alignment.bottomCenter,
                                                   // 位置 Alignment.bottomCenter 底部中间
                                                   // 距离调整
-                                                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+//                                                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                                  margin: const EdgeInsets.only(top: 10),
                                                   // 指示器构建
                                                   builder:
                                                   DotSwiperPaginationBuilder(

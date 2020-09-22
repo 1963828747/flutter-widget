@@ -11,6 +11,7 @@ import 'package:widget/other/xinjixueyuan.dart';
 import 'package:widget/page/home/index02/animatedcrossfade_page.dart';
 import 'package:widget/page/home/index02/animatedpadding_page.dart';
 import 'package:widget/page/home/index02/animatedpositioned_page.dart';
+import 'package:widget/page/home/index02/animationopacity_page.dart';
 import 'package:widget/page/home/index02/aspedtratio_page.dart';
 import 'package:widget/page/home/index02/audio_page.dart';
 import 'package:widget/page/home/index02/charts_page.dart';
@@ -19,16 +20,21 @@ import 'package:widget/page/home/index02/get_page.dart';
 import 'package:widget/page/home/index02/fadeinimage_page.dart';
 import 'package:widget/page/home/index02/fadetransition_page.dart';
 import 'package:widget/page/home/index02/frationallyfizedbox_page.dart';
+import 'package:widget/page/home/index02/hero_page.dart';
+import 'package:widget/page/home/index02/indexedstack_page.dart';
 import 'package:widget/page/home/index02/limitedbox_page.dart';
 import 'package:widget/page/home/index02/list_tile_page.dart';
 import 'package:widget/page/home/index02/reoderablelistview_page.dart';
+import 'package:widget/page/home/index02/richtext_page.dart';
 import 'package:widget/page/home/index02/rount1_page.dart';
 import 'package:widget/page/home/index02/selectable_text.dart';
+import 'package:widget/page/home/index02/semantics_page.dart';
 import 'package:widget/page/home/index02/slider_page.dart';
 import 'package:widget/page/home/index02/sliver_page.dart';
 import 'package:widget/page/home/index02/state2_page.dart';
 import 'package:widget/page/home/index02/state_page.dart';
 import 'package:widget/page/home/index02/togglebuttons_page.dart';
+import 'package:widget/page/home/index02/tooltip_page.dart';
 import 'package:widget/view/login_widget.dart';
 import 'package:widget/view_models/login_view_model.dart';
 import '../../main.dart';
@@ -83,9 +89,11 @@ class HomePage extends StatefulWidget {
 
 }
 // {"nam":(), "name":""},
-List<Map> nameList = [
-  {"nam":AnimatedPositionedPage(), "name":"AnimatedPositionedPage"},
-  {"nam":AnimatedPaddingPage(), "name":"AnimatedPaddingPage"},
+List<Map> nameList = [{"nam":MukeWangNeng(), "name":"MukeWangNeng"},
+  {"nam":RichTextPage(), "name":"RichText"},{"nam":TooltipPage(), "name":"Tooltip"},
+  {"nam":IndexedStackPage(), "name":"IndexedStackPage"},{"nam":HeroPage(), "name":"Hero"},
+  {"nam":AnimatedPositionedPage(), "name":"AnimatedPositionedPage"},{"nam":AnimatedOpacityPage(), "name":"AnimatedOpacity"},
+  {"nam":AnimatedPaddingPage(), "name":"AnimatedPaddingPage"},{"nam":SemanticsPage(), "name":"SemanticsPage"},
   {"nam":SelectableTextPage(), "name":"SelectableText"},{"nam":AnimatedCrossFadePage(), "name":"AnimatedCrossFadePage"},
   {"nam":GetPage(), "name":"get post请求"},{"nam":ReoderableListviewPage(), "name":"ReoderableListviewPage"},
   {"nam":ChartsPage(), "name":"Charts折现图"},{"nam":Rount1Page(), "name":"Rount1Page"},
