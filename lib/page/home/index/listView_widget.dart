@@ -9,32 +9,34 @@ class ListViewWidget extends StatefulWidget {
 
 class _ListViewWidgetState extends State<ListViewWidget> {
   List<Widget> _list = new List();
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
 //      height: MediaQuery.of(context).size.height,
-       child: Scaffold(
-         appBar:AppBar(
-           title: Text('ListView列表'),
-          centerTitle: true,
-           leading: GestureDetector(
-             onTap: (){
-               Navigator.pop(context);
-             },
-             child: Icon(Icons.keyboard_arrow_left)),
-         ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
-        color: Colors.white,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('ListView普通列表'),
-            Container(
-              height:100,
-            child: ListView(
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text('ListView列表'),
+            centerTitle: true,
+            leading: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(Icons.keyboard_arrow_left)),
+          ),
+          body: Container(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            color: Colors.white,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('ListView普通列表'),
+                Container(
+                  height: 100,
+                  child: ListView(
 //              ListView({
 //                Key key,
 //                Axis scrollDirection = Axis.vertical,//滑动的方向,默认为 Axis.vertical，垂直方向可滑动
@@ -61,70 +63,72 @@ class _ListViewWidgetState extends State<ListViewWidget> {
 //                super(
 //                ...
 //                );
-                reverse:true,//控制 ListView 里列表项的排列顺序，是按照插入顺序排，还是按照插入顺序相反的方向排序
-                shrinkWrap: true,//是否根据列表项的总长度来设置 ListView的长度
-                padding: EdgeInsets.only(left: 16,right: 16),//ListView 的内边距
-                 scrollDirection: Axis.horizontal,
-                addAutomaticKeepAlives:false,
-              children: <Widget>[
-                Center(child: Text('1')),
-                Center(child: Text('2')),
-                Center(child: Text('3')),
-              ],
-            ),),
-            Text('ListView.builder用于建立重复组件'),
-            Container(
-              height:100,
-                child: ListView.builder(
-                itemCount: 3,
-                itemBuilder: (context,index){
-                  return Center(child: Text('$index'));
-                }),),
-            Text('ListView.separated夹杂其他组件+去除水波'),
-            Container(
-              height:100,
-              child: ListView.separated(
-                  physics: BouncingScrollPhysics(),//去除水波
-                  itemBuilder: (context,index){
-                    return Center(child: Text('$index'));
-                  },
-                  separatorBuilder: (context,index){
-                    return Divider(color: Colors.blue);//例如一条分割线,不包括最下面一列
-                  },
-                  itemCount: 3),
-            ),
-            Text('ListView.custom自定义列表'),
-            Expanded(
-              child: Container(
-                  child: ListView.custom(
+                    reverse: true,
+                    //控制 ListView 里列表项的排列顺序，是按照插入顺序排，还是按照插入顺序相反的方向排序
+                    shrinkWrap: true,
+                    //是否根据列表项的总长度来设置 ListView的长度
+                    padding: EdgeInsets.only(left: 16, right: 16),
+                    //ListView 的内边距
+                    scrollDirection: Axis.horizontal,
+                    addAutomaticKeepAlives: false,
+                    children: <Widget>[
+                      Center(child: Text('1')),
+                      Center(child: Text('2')),
+                      Center(child: Text('3')),
+                    ],
+                  ),
+                ),
+                Text('ListView.builder用于建立重复组件'),
+                Container(
+                  height: 100,
+                  child: ListView.builder(
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        return Center(child: Text('$index'));
+                      }),
+                ),
+                Text('ListView.separated夹杂其他组件+去除水波'),
+                Container(
+                  height: 100,
+                  child: ListView.separated(
+                      physics: BouncingScrollPhysics(), //去除水波
+                      itemBuilder: (context, index) {
+                        return Center(child: Text('$index'));
+                      },
+                      separatorBuilder: (context, index) {
+                        return Divider(color: Colors.blue); //例如一条分割线,不包括最下面一列
+                      },
+                      itemCount: 3),
+                ),
+                Text('ListView.custom自定义列表'),
+                Expanded(
+                  child: Container(
+                      child: ListView.custom(
 //                  scrollDirection: Direction.vertical,
-                  shrinkWrap: true,
-                      primary:true,
-                    childrenDelegate: SliverChildListDelegate(
-                      _getWidget()
-                  ),)
-              ),
+                    shrinkWrap: true,
+                    primary: true,
+                    childrenDelegate: SliverChildListDelegate(_getWidget()),
+                  )),
+                ),
+              ],
             ),
-
-          ],
-        ),
-      )
-       ),
+          )),
     );
   }
-  _getWidget(){
+
+  _getWidget() {
     List<Widget> widgets = [];
-    for (var i = 0;i < 100;i++) {
+    for (var i = 0; i < 100; i++) {
       widgets.add(
-          Column(
-            children: <Widget>[
-              ListTile(
-                title: Center(child: Text("item $i")),
-              ),
-              Image.asset('assets/images/aa.jpg'),
-              Divider(color: Colors.blue),
-            ],
-          ),
+        Column(
+          children: <Widget>[
+            ListTile(
+              title: Center(child: Text("item $i")),
+            ),
+            Image.asset('assets/images/aa.jpg'),
+            Divider(color: Colors.blue),
+          ],
+        ),
       );
     }
     return widgets;

@@ -2,6 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:widget/demo/card_information_page.dart';
+import 'package:widget/demo/card_verification_page.dart';
+import 'package:widget/demo/management_center_page.dart';
+import 'package:widget/demo/my_income_page.dart';
+import 'package:widget/demo/regist.dart';
+import 'package:widget/demo/set_password_page.dart';
+import 'package:widget/demo/setup_complete_page.dart';
 import 'package:widget/other/bang.dart';
 import 'package:widget/other/classsort.dart';
 import 'package:widget/other/cost_description.dart';
@@ -81,6 +88,18 @@ import 'index/textfeild.widget.dart';
 import 'index/video_widget.dart';
 import 'index02/draggablescrollablesheet_page.dart';
 import 'index02/slivergrid_list_page.dart';
+
+//常用快捷键总结：
+//Ctrl+Alt+Space 代码提示
+//Ctrl+Alt+O 去除无效的包引用
+//Ctrl+C 复制一行
+//Alt + up /down 代码上下移动
+//Ctrl + 鼠标右键 出现代码提示框
+//Ctrl +Z 撤销操作
+//Ctrl +D 删除一行
+//Ctrl +F 查找
+//Ctrl+/ 或 Ctrl+Shift+/ 注释（// 或者 /**/）
+
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
@@ -89,7 +108,11 @@ class HomePage extends StatefulWidget {
 
 }
 // {"nam":(), "name":""},
-List<Map> nameList = [{"nam":MukeWangNeng(), "name":"MukeWangNeng"},
+List<Map> nameList = [
+  {"nam":CardInformationPage(), "name":"添加银行卡-资料"},{"nam":MyBody(), "name":"发送验证码"},
+  {"nam":CardVerificationPage(), "name":"添加银行卡-验证"}, {"nam":ManagementCenterPage(), "name":"管理中心"},
+  {"nam":MyincomePage(), "name":"我的收益"},{"nam":SetPasswordPage(), "name":"设置密码"},
+  {"nam":SetupCompletePage(), "name":"设置完成"}, {"nam":MukeWangNeng(), "name":"MukeWangNeng"},
   {"nam":RichTextPage(), "name":"RichText"},{"nam":TooltipPage(), "name":"Tooltip"},
   {"nam":IndexedStackPage(), "name":"IndexedStackPage"},{"nam":HeroPage(), "name":"Hero"},
   {"nam":AnimatedPositionedPage(), "name":"AnimatedPositionedPage"},{"nam":AnimatedOpacityPage(), "name":"AnimatedOpacity"},
@@ -165,6 +188,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+
         body: Center(
           child:
           isClick == false
